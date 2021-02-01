@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PbiKit</title>
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/ui-example.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/icons.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+</head>
+<body>
+  <app-root></app-root>
+<!-- 
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/clipboard/dist/clipboard.min.js"></script> -->
+  <script>
+  var clipboard = new ClipboardJS('.copy-clip');
+
+$('.copy-clip').tooltip({
+  trigger: 'click',
+  placement: 'top'
+});
+
+function setTooltip(btn, message) {
+  $(btn).tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+}
+
+function hideTooltip(btn) {
+  setTimeout(function () {
+    $(btn).tooltip('hide');
+  }, 1000);
+}
+
+clipboard.on('success', function (e) {
+  setTooltip(e.trigger, 'Copied!');
+  hideTooltip(e.trigger);
+});
+
+clipboard.on('error', function (e) {
+  setTooltip(e.trigger, 'Failed!');
+  hideTooltip(e.trigger);
+});
+
+
+
+$('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="popover"]').popover();
+
+  $('.talk-uiKit .right-col').on("scroll", function () {
+    if ($(this).scrollTop() > 300) {
+      $(".back-to-top").fadeIn(400);
+    } else {
+      $('.back-to-top').fadeOut(400);
+    }
+ 
+});
+</script>
+  
+</body>
+</html>

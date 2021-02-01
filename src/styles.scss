@@ -1,0 +1,258 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+
+//TODO: Need to find a way to import this globally
+@import "themes/variables.scss";
+
+// Apply our theme colors to Kendo UI
+$series-e: $contrast-primary;
+//$primary: $contrast-primary;
+$accent: $contrast-primary;
+$success: $success-color;
+$error: $danger-color;
+$text-color: $primary;
+$bg-color: $pure-white;
+$base-text: $primary;
+$base-bg: $pure-white;
+$selected-text: $primary;
+$selected-bg: $contrast-primary;
+@import '~@progress/kendo-theme-default/scss/all';
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+mat-card {
+  margin-bottom: 10px;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.card-title {
+  color: #3a405b;
+  font-size: 1.125rem !important;
+  font-weight: 500 !important;
+}
+
+.card-divider {
+  margin-left: -1.5rem !important;
+  margin-right: -1.5rem !important;
+}
+
+@media only screen and (min-width: 960px) {
+  mat-card {
+    margin: 5px;
+  }
+}
+
+/*
+There's a bug with transform conflicting with position:fixed. This fixes the issue.
+https://github.com/angular/material2/issues/998 */
+.mat-sidenav-container, .mat-sidenav-content {
+  transform: none !important;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #777;
+  border-radius: 10px;
+}
+
+.badge-notification {
+  margin-top: -46px;
+  margin-left: -15px;
+  background-color: #F44336;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.full-height {
+  height: 100% !important;
+}
+
+.full-width-dialog {
+  width: 100% !important;
+}
+
+.action-buttons {
+  margin-top: 10px;
+}
+
+.divider {
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  width: 100%
+}
+
+/* Kendo component styles override*/
+.k-tabstrip .k-item {
+  color: set-text-color-for-background($primary);
+  background-color: $primary;
+}
+
+.k-tabstrip .k-item:hover {
+  color: set-text-color-for-background($pure-white);
+  background-color: $pure-white;
+}
+
+/* Material component styles override*/
+.mat-dialog-container {
+  padding: 0px;
+  .mat-form-field-flex, .mat-focused > .mat-form-field-flex {
+    background: $light-secondary;
+    border-bottom: 2px solid $contrast-primary;
+  }
+  .mat-input-infix textarea, .mat-form-field-infix textarea {
+    height: 100px;
+  }
+  .submit-button:hover {
+    color: $success-color;
+  }
+  .close-button:hover {
+    color: $danger-color;
+  }
+  .mat-form-field-invalid > .mat-form-field-wrapper > .mat-form-field-flex {
+    border-bottom: 2px solid $danger-color !important;
+  }
+  .showErrorMessage >  .mat-form-field-wrapper > .mat-form-field-flex {
+    border-bottom: 2px solid $danger-color !important;
+  }
+}
+
+.k-grid-header .k-grid-filter {
+  color: $secondary;
+}
+
+.k-grid-header .k-grid-filter, .k-grid-header .k-header > .k-link{
+  display:inline;
+}
+
+.k-grid-header .k-grid-filter:hover {
+  color: $light-primary;
+  background-color: $contrast-primary;
+}
+
+.k-grid-header .k-grid-filter.k-state-active {
+  background: none;
+  color: $contrast-primary;
+}
+
+ .success-snack-bar{
+  color: $success-color !important;
+}
+ .error-snack-bar{
+  color: $danger-color !important;
+}
+
+.mat-error {
+  text-transform: uppercase;
+}
+
+.k-grid th {
+  background: $primary;
+  color: set-text-color-for-background($primary);
+}
+
+.color-picker {
+  top: 60px !important;
+  .preset-area {
+    height: 200px;
+    overflow: scroll;
+    overflow-x: unset;
+  }
+  .cp-remove-color-button-class {
+    display: none !important;
+  }
+}
+
+.full-screen-loader {
+  position: fixed;
+  background-color: rgba(120, 120, 120, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 1001;
+
+   mat-spinner {
+    margin:0 auto;
+  }
+}
+
+// Charts
+.block-heading {
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  font-weight: 500;
+  color: #8c8c8c;
+}
+.width-100 {
+  width: 100% !important;
+}
+kendo-pager {
+  z-index: 0 !important;
+}
+.mat-form-field-invalid {
+	>.mat-form-field-wrapper {
+		>.mat-form-field-flex {
+			border-bottom: 2px solid $danger-color !important;
+		}
+	}
+}
+.showErrorMessage {
+	.mat-form-field-wrapper {
+		.mat-form-field-flex {
+			border-bottom: 2px solid $danger-color !important;
+		}
+	}
+}
+.color-chooser {
+	cursor: pointer !important;
+}
+.format-options {
+	img {
+		padding-right: 5px;
+	}
+}
+
+
+@import "Assets/scss/kit.scss";
+@import "Assets/scss/style.scss";
+@import "Assets/scss/theme/style.css";
+@import "Assets/scss/theme/ui-example.css";
